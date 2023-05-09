@@ -16,6 +16,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         let nib = UINib(nibName: "CustomCollectionViewCell", bundle: .main)
         collectionView.register(nib, forCellWithReuseIdentifier: "CustomCollectionViewCell")
         
@@ -23,6 +24,12 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         collectionView.register(headerNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
         
         clwLayout()
+    }
+    
+    
+    @IBAction func goToTableView(_ sender: Any) {
+        let tableVC = TableViewController()
+        self.navigationController?.pushViewController(tableVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
